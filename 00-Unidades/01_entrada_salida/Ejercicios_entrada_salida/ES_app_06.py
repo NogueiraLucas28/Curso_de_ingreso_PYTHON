@@ -39,10 +39,16 @@ class App(customtkinter.CTk):
 
 
     def btn_sumar_on_click(self):
-        pass
+        n1_str = self.txt_operador_a.get()
+        n2_str = self.txt_operador_b.get()
+        n1 = int(n1_str)
+        n2 = int(n2_str)
+        sum = n1 + n2
+        alert("Ecuacion", "Result of ecuation its..." + str(sum))
      
         
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+
