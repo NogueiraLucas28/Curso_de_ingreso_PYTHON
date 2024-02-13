@@ -5,8 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Lucas
+apellido:Nogueira
+Tutor:Marina/albana
 ---
 Ejercicio: entrada_salida_08
 ---
@@ -47,7 +48,7 @@ class App(customtkinter.CTk):
 
         ecuacion = operador1 % operador2
         mensaje = f"El resto de dividir {operador1} por {operador2} es: {ecuacion}"
-        alert("", mensaje)
+        alert("Resultado", mensaje)
         
         
     

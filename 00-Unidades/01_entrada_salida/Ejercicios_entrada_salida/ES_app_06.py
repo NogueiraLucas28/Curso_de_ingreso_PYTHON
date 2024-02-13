@@ -5,8 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Lucas
+apellido:Nogueira
+Tutor:Marina/albana
 ---
 Ejercicio: entrada_salida_06
 ---
@@ -44,7 +45,8 @@ class App(customtkinter.CTk):
         n1 = int(n1_str)
         n2 = int(n2_str)
         sum = n1 + n2
-        alert("Ecuacion", "Result of ecuation its..." + str(sum))
+        mensaje = "Resutado de la suma: " + str(sum)
+        alert("Suma", mensaje)
      
         
 if __name__ == "__main__":

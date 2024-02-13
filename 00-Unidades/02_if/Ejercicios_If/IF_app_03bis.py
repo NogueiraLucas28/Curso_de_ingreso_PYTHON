@@ -22,7 +22,7 @@ class App(customtkinter.CTk):
 
         self.title("UTN FRA")
 
-        self.label1 = customtkinter.CTkLabel(master=self, text="Altura")
+        self.label1 = customtkinter.CTkLabel(master=self, text="Altura(cm)")
         self.label1.grid(row=0, column=0, padx=20, pady=10)
 
         self.txt_altura = customtkinter.CTkEntry(master=self)
@@ -36,10 +36,11 @@ class App(customtkinter.CTk):
         altura_str = self.txt_altura.get()
         altura = int(altura_str)
         pass
-        if altura >= 180:
-            alert("Resultados","Sos pivot")
+        if altura > 180:
+            mensaje = "Sos pivot"
         else:
-            alert("Resultados","No sos pivot")
+            mensaje = "No sos pivot"
+        alert ("Resultado", mensaje)
 
 
 if __name__ == "__main__":
