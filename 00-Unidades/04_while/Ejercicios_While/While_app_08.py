@@ -36,7 +36,27 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+    
+        suma = 0
+        multiplicacion = 1
+        while True:
+            numero = prompt ("UTN","Ingrese un número")
+            if not numero or numero == 0:
+                break
+            numero = int(numero)
+            if numero > 0:
+                suma += numero
+            if numero < 0:
+
+                multiplicacion *= numero
+        
+            
+            
+             
+        self.txt_producto.delete(0, "end")
+        self.txt_suma_acumulada.delete(0, "end")
+        self.txt_suma_acumulada.insert(0, suma)
+        self.txt_producto.insert(0, multiplicacion)
 
     
 if __name__ == "__main__":
