@@ -52,8 +52,50 @@ class App(customtkinter.CTk):
             master=self, text="Validar", command=self.btn_validar_on_click)
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
-    def btn_validar_on_click(self):
-        pass
+    def btn_validar_on_click(self):  
+        while True:
+            apellido = prompt ("Carga de datos", "Apellido")
+            if apellido.isalpha() == False or apellido == "":
+                alert ("ERROR", "INGRESE SU APELLIDO SIN NUMEROS O CARACTERES ESPECIALES")
+            else:
+                break
+
+        while True:
+            edad_str = prompt ("Carga de datos", "Cargue su edad (solo numeros entre 18 y 90)")
+            if edad_str.isdigit() == False:
+                alert ("ERROR", "INGRESE SOLO NUMEROS")
+                continue
+                
+            edad = int(edad_str) 
+            if (edad < 18 or edad > 90):
+                alert ("ERROR", "INGRESE NUMEROS DEL 18 AL 90")
+                continue
+            else:
+                break
+
+        while True:
+            estado = prompt ("Carga de datos", "Estado civil")
+            if estado == None:
+                estado = int(estado)
+            elif estado != "soltero" and estado != "casado" and estado != "divorciado" and estado != "viudo": 
+                alert ("ERROR", "VALORES ACEPTADOS: soltero, casado, divorciado, viudo")
+            else:
+                break
+
+        while True:
+            legajo_str = prompt ("Carga de datos", "Número de legajo")
+            if legajo_str.isdigit() == False:
+                alert ("ERROR", "INGRESE SOLO NUMEROS")
+                continue
+            legajo = int(legajo_str)
+            if (legajo < 1000 or legajo > 9999):
+                alert ("ERROR", "INGRESE SOLO 4 CIFRAS, SIN CEROS A LA IZQUIERDA")
+                continue
+            else:
+                break
+
+        print ("Hola", apellido, edad, estado, legajo)
+        
 
 
 if __name__ == "__main__":
