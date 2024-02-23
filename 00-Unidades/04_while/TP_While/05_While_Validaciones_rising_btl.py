@@ -52,38 +52,47 @@ class App(customtkinter.CTk):
             master=self, text="Validar", command=self.btn_validar_on_click)
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
-    def btn_validar_on_click(self):  
-        while True:
+    def btn_validar_on_click(self):                         #arreglar espacio entre apellido
+        cerrar = False
+        
+        while cerrar == False:
             apellido = prompt ("Carga de datos", "Apellido")
-            if apellido.isalpha() == False or apellido == "":
+            if apellido == None:
+                cerrar = True 
+            elif apellido.isalpha() == False or apellido == "":
                 alert ("ERROR", "INGRESE SU APELLIDO SIN NUMEROS O CARACTERES ESPECIALES")
             else:
                 break
-
-        while True:
+       
+        while cerrar == False:
             edad_str = prompt ("Carga de datos", "Cargue su edad (solo numeros entre 18 y 90)")
+            if edad_str == None:
+                cerrar = True
+                break
             if edad_str.isdigit() == False:
                 alert ("ERROR", "INGRESE SOLO NUMEROS")
                 continue
-                
             edad = int(edad_str) 
             if (edad < 18 or edad > 90):
-                alert ("ERROR", "INGRESE NUMEROS DEL 18 AL 90")
+                alert ("ERROR", "SU EDAD DEBE ESTAR ENTRE 18 Y 90 AÑOS")
                 continue
             else:
                 break
-
-        while True:
+     
+        while cerrar == False:
             estado = prompt ("Carga de datos", "Estado civil")
             if estado == None:
-                estado = int(estado)
+                cerrar = True
             elif estado != "soltero" and estado != "casado" and estado != "divorciado" and estado != "viudo": 
                 alert ("ERROR", "VALORES ACEPTADOS: soltero, casado, divorciado, viudo")
             else:
                 break
 
-        while True:
+        while cerrar == False:
             legajo_str = prompt ("Carga de datos", "Número de legajo")
+            if legajo_str == None:
+                cerrar = True
+                break
             if legajo_str.isdigit() == False:
                 alert ("ERROR", "INGRESE SOLO NUMEROS")
                 continue
@@ -93,10 +102,18 @@ class App(customtkinter.CTk):
                 continue
             else:
                 break
-
-        print ("Hola", apellido, edad, estado, legajo)
-        
-
+       
+        if cerrar == True:
+            alert ("Cancel", "Cerrando")
+        else:
+            self.txt_apellido.delete(0, "end")
+            self.txt_edad.delete(0, "end")
+            self.txt_tipo.delete(0, "end")
+            self.txt_legajo.delete(0, "end")
+            self.txt_apellido.insert(0,apellido)
+            self.txt_edad.insert(0,edad)
+            self.txt_tipo.insert(0,estado)
+            self.txt_legajo.insert(0,legajo)
 
 if __name__ == "__main__":
     app = App()
