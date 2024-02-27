@@ -5,8 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Lucas
+apellido:Nogueira
+Tutor:Marina/albana
 ---
 Ejercicio: for_03
 ---
@@ -32,7 +33,10 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero = self.txt_repetir.get()
+        numero = int(numero)
+        for i in range(numero):
+            alert("UTN","Hola UTN FRA")
 
         
     

@@ -5,8 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Lucas
+apellido:Nogueira
+Tutor:Marina/albana
 ---
 Ejercicio: while_06
 ---
@@ -49,7 +50,7 @@ class App(customtkinter.CTk):
         self.txt_suma_acumulada.insert(0, suma)
         self.txt_promedio.insert(0, promedio)
 
-    
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

@@ -5,8 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Lucas
+apellido:Nogueira
+Tutor:Marina/albana
 ---
 Ejercicio: for_06
 ---
@@ -27,7 +28,19 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero = prompt("UTN", "Ingrese numero")
+        numero = int(numero)
+
+        contador_divisores = 0
+        for i in range(1, numero + 1):
+            divisores = ""
+            for j in range (1, i + 1):
+                if (i % j) == 0:
+                    contador_divisores += 1
+                    divisores += f"\n\t{j}"
+
+            alert("UTN", f"Numero: {i}\nDivisores: {divisores}")
+        alert ("UTN", f"Total divisores encontrados: {contador_divisores}")
         
     
 if __name__ == "__main__":

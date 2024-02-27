@@ -5,8 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Lucas
+apellido:Nogueira
+Tutor:Marina/albana
 ---
 TP: While_elecciones_paso
 ---
@@ -38,43 +39,46 @@ class App(customtkinter.CTk):
         acumulador_edades = 0
         acumulador_votos = 0
         contador_candidatos = 0
-        bandera = True
+        primera_vez = True
+        continuar = True
 
-        while True:
+        while continuar:
             nombre = prompt("Carga de datos", "Ingrese nombre")
-            if nombre == None:
-                break
+            while nombre == None or nombre == "":  
+                nombre = prompt("Carga de datos", "Reingrese nombre")
+
             edad = prompt("Carga de datos", "Ingrese edad")
-            edad = int(edad)
+            while edad == None or edad == "" or int(edad) < 25:
+                edad = prompt("Carga de datos", "Reingrese edad")
             
-            if edad < 25:
-                alert("Error", "La edad minima es 25")
-                break
             votos = prompt("Carga de datos", "Ingrese votos")
+            while votos == None or votos == "" or int(votos) < 0:  
+                votos = prompt("Carga de datos", "Reingrese votos")
+
+            edad = int(edad)
             votos = int(votos)
-            if votos < 0:   
-                alert("Error", "No puede tener menos de 0 votos")
-                break
             contador_candidatos += 1
             acumulador_edades += edad
             acumulador_votos += votos
-            if (bandera == True) or (votos > maximos_votos):
+            if (primera_vez == True) or (votos > maximos_votos):
                 maximos_votos = votos
                 candidato_mas_votos = nombre
 
-            if (bandera == True) or (votos < minimos_votos):
+            if (primera_vez == True) or (votos < minimos_votos):
                 minimos_votos = votos
                 candidato_menos_votos = nombre
                 edad_candidato_menos_votos = edad
-                bandera = False
+                primera_vez = False
+            
+            continuar = question("UTN","Desea continuar?")
             
             
             
         promedio_edades = acumulador_edades / contador_candidatos
 
 
-        mensaje = f"candidato mas votado: {candidato_mas_votos},    candidato menos votad: {candidato_menos_votos},     edad del menos votado:{edad_candidato_menos_votos},      promedio edades: {promedio_edades},      votos totales:{acumulador_votos}"
-        print(mensaje)
+        mensaje = f"candidato mas votado: {candidato_mas_votos}\ncandidato menos votad: {candidato_menos_votos}\nedad del menos votado: {edad_candidato_menos_votos}\npromedio edades: {promedio_edades}\nvotos totales: {acumulador_votos}"
+        alert("UTN", mensaje)
 
 
 

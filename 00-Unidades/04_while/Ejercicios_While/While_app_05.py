@@ -6,8 +6,9 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre:Lucas
+apellido:Nogueira
+Tutor:Marina/albana
 ---
 Ejercicio: while_05
 ---
@@ -35,13 +36,8 @@ class App(customtkinter.CTk):
         
         while letra != "U" and letra != "T" and letra != "N":
             letra = prompt("Error", "Reingrese una letra")
-        
 
-            
-                        
 
-            
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

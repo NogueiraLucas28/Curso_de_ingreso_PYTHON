@@ -6,8 +6,9 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre:Lucas
+apellido:Nogueira
+Tutor:Marina/albana
 ---
 Ejercicio: while_03
 ---
@@ -35,14 +36,7 @@ class App(customtkinter.CTk):
         while contraseña != "utn750":
             alert("UTN", "contraseña erronea, vuelva a ingresar su contraseña")
             contraseña = prompt("UTN", "Ingresar contraseña")
-      
-        
-            
-            
-            
-        
-    
-    
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

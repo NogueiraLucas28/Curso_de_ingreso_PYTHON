@@ -5,8 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Lucas
+apellido:Nogueira
+Tutor:Marina/albana
 ---
 TP: While_validaciones_rising_btl
 ---
@@ -52,18 +53,18 @@ class App(customtkinter.CTk):
             master=self, text="Validar", command=self.btn_validar_on_click)
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
-    def btn_validar_on_click(self):                         #arreglar espacio entre apellido
+    def btn_validar_on_click(self):                         
         cerrar = False
         
         while cerrar == False:
             apellido = prompt ("Carga de datos", "Apellido")
             if apellido == None:
                 cerrar = True 
-            elif apellido.isalpha() == False or apellido == "":
+            elif apellido.isalpha() == False or apellido == "":     #si hay espacios en el apellido esta mal
                 alert ("ERROR", "INGRESE SU APELLIDO SIN NUMEROS O CARACTERES ESPECIALES")
             else:
                 break
-       
+
         while cerrar == False:
             edad_str = prompt ("Carga de datos", "Cargue su edad (solo numeros entre 18 y 90)")
             if edad_str == None:
@@ -78,7 +79,7 @@ class App(customtkinter.CTk):
                 continue
             else:
                 break
-     
+
         while cerrar == False:
             estado = prompt ("Carga de datos", "Estado civil")
             if estado == None:
@@ -102,7 +103,7 @@ class App(customtkinter.CTk):
                 continue
             else:
                 break
-       
+
         if cerrar == True:
             alert ("Cancel", "Cerrando")
         else:

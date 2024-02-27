@@ -6,8 +6,9 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre:Lucas
+apellido:Nogueira
+Tutor:Marina/albana
 ---
 Ejercicio: while_01
 ---
@@ -35,9 +36,6 @@ class App(customtkinter.CTk):
             contador += 1
             alert("UTN", contador)
             
-
-    
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
